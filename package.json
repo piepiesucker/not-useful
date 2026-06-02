@@ -1,0 +1,7 @@
+{
+  "name": "ws-relay",
+  "version": "1.0.0",
+  "main": "ws-server.js",
+  "scripts": { "start": "node ws-server.js" },
+  "dependencies": { "ws": "^8.13.0" }
+}
