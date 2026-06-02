@@ -1,5 +1,4 @@
 // ws-server.js
-// Simple secure WebSocket relay for frames
 const WebSocket = require('ws');
 
 const PORT = process.env.PORT || 8080;
@@ -17,7 +16,6 @@ wss.on('connection', (ws, req) => {
   ws.on('message', (msg) => {
     try {
       const data = JSON.parse(msg.toString());
-      // token validation
       if (!data.token || data.token !== SECRET) {
         ws.send(JSON.stringify({ error: 'invalid token' }));
         return;
@@ -36,7 +34,6 @@ wss.on('connection', (ws, req) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-// heartbeat to drop dead clients
 setInterval(() => {
   wss.clients.forEach(ws => {
     if (!ws.isAlive) return ws.terminate();
