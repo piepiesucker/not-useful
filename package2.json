@@ -1,0 +1,7 @@
+{
+  "name": "cloud-sender",
+  "version": "1.0.0",
+  "main": "sender.js",
+  "scripts": { "start": "node sender.js" },
+  "dependencies": { "ws": "^8.13.0", "jimp": "^0.16.1" }
+}
